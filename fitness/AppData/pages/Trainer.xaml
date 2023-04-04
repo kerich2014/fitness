@@ -1,0 +1,51 @@
+﻿<Page x:Class="fitness.AppData.pages.ViewTrainer"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:fitness.AppData.pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Trainer" IsVisibleChanged="Page_IsVisibleChanged">
+
+    <Grid>
+        <ListBox x:Name="lbView" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,43,0,89">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="550"/>
+                                <ColumnDefinition Width="200"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100"/>
+                            </Grid.RowDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <TextBlock FontSize="25" FontFamily="Calibry Light">
+                                <Run Text="{Binding lName}"/>
+                                <Run Text="{Binding fName}"/>
+                                <Run Text="{Binding mName}"/>
+                            </TextBlock>
+                            <TextBlock FontSize="20" FontFamily="Calibry Light">
+                                <Run FontWeight="Bold" Text="Специализация:"/>
+                                <Run Text="{Binding Specialization1.name}"/>
+                            </TextBlock>
+                            <TextBlock FontSize="20" FontFamily="Calibry Light">
+                                <Run FontWeight="Bold" Text="Почта:"/>
+                                <Run Text="{Binding email}"/>
+                            </TextBlock>
+                            <TextBlock FontSize="20" FontFamily="Calibry Light">
+                                <Run FontWeight="Bold" Text="Телефон:"/>
+                                <Run Text="{Binding phone}"/>
+                            </TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        <TextBox x:Name="txbSearch" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="300" FontFamily="Candara" FontSize="20" SelectionChanged="txbSearch_SelectionChanged"/>
+            <Button x:Name="btnDelete" Content="Удаление" HorizontalAlignment="Left" Margin="670,366,0,0" VerticalAlignment="Top" FontFamily="Calibri Light" FontSize="20" Width="100" Visibility="Visible" Click="btnDelete_Click"/>
+            <Button x:Name="btnAdd" Content="Добавление" HorizontalAlignment="Left" Margin="545,366,0,0" VerticalAlignment="Top" FontFamily="Calibri Light" FontSize="20" Width="120" Visibility="Visible" Click="btnAdd_Click"/>
+            <Button x:Name="btn_Back" Content="Назад" HorizontalAlignment="Left" Margin="10,366,0,0" VerticalAlignment="Top" FontFamily="Calibri Light" FontSize="20" Width="120" Visibility="Visible" Click="btn_Back_Click"/>
+    </Grid>
+</Page>
